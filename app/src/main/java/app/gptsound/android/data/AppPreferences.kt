@@ -52,9 +52,11 @@ class AppPreferences(context: Context) {
         prefs.edit().putString(KEY_HISTORY, json.encodeToString(tracks.take(100))).apply()
     }
 
-    private fun decodeTracks(value: String?): List<Track> = runCatching {
-        if (value.isNullOrBlank()) emptyList() else json.decodeFromString(value)
-    }.getOrDefault(emptyList())
+    private fun decodeTracks(value: String?): List<Track> {
+        if (value.isNullOrBlank()) return emptyList()
+        return runCatching { json.decodeFromString<List<Track>>(value) }
+            .getOrDefault(emptyList())
+    }
 
     companion object {
         const val DEFAULT_REDIRECT = "gptsound://oauth/callback"
