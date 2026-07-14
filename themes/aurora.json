@@ -1,0 +1,10 @@
+{
+    "name": "Aurora Community",
+    "accent": "#8BE9FF",
+    "secondary": "#A78BFA",
+    "backgroundTop": "#0B1020",
+    "backgroundBottom": "#20103A",
+    "glassAlpha": 0.13,
+    "cornerRadius": 28,
+    "glowStrength": 0.55
+}

@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://gptsound.app/theme.schema.json",
+    "title": "GPTsound theme",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "name",
+        "accent",
+        "secondary",
+        "backgroundTop",
+        "backgroundBottom",
+        "glassAlpha",
+        "cornerRadius",
+        "glowStrength"
+    ],
+    "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "accent": { "$ref": "#/$defs/color" },
+        "secondary": { "$ref": "#/$defs/color" },
+        "backgroundTop": { "$ref": "#/$defs/color" },
+        "backgroundBottom": { "$ref": "#/$defs/color" },
+        "glassAlpha": { "type": "number", "minimum": 0.05, "maximum": 0.35 },
+        "cornerRadius": { "type": "integer", "minimum": 12, "maximum": 40 },
+        "glowStrength": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "$defs": {
+        "color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+        }
+    }
+}
